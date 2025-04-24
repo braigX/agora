@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Jeu Augustus</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+    <div id="game-container">
+        <div id="sidebar">
+            <section id="scores">
+                <table>
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th><img src="assets/imgs/card.jpeg"    alt="Or"    title="Or"    class="icon-header"></th>
+                      <th><img src="assets/imgs/card.jpeg"   alt="Blé"   title="Blé"   class="icon-header"></th>
+                      <th><img src="assets/imgs/card.jpeg"   alt="Jetons"title="Jetons"class="icon-header"></th>
+                      <th><img src="assets/imgs/card.jpeg"   alt="Jetons"title="Jetons"class="icon-header"></th>
+                    </tr>
+                  </thead>
+                  <tbody> 
+                    <tr>
+                      <td><img src="assets/imgs/card.jpeg" alt="Joueur 1" class="avatar"></td>
+                      <td>2</td>
+                      <td>1</td>
+                      <td>5</td>
+                      <td>34</td>
+                    </tr>
+                    <tr>
+                      <td><img src="assets/imgs/card.jpeg" alt="Joueur 2" class="avatar"></td>
+                      <td>1</td>
+                      <td>3</td>
+                      <td>3</td>
+                      <td>43</td>
+                    </tr>
+                    <!-- Ajoutez d’autres joueurs ici -->
+                  </tbody>
+                </table>
+              </section>
+                <!-- ── Pouvoirs permanents ── -->
+                <section id="powers">
+                    <h3>Pouvoirs permanents</h3>
+                    <div class="power-cards">
+                    <img src="assets/imgs/card.jpeg" alt="Pouvoir 1" class="power-card">
+                    <img src="assets/imgs/card.jpeg" alt="Pouvoir 2" class="power-card">
+                    <img src="assets/imgs/card.jpeg" alt="Pouvoir 3" class="power-card">
+                    <img src="assets/imgs/card.jpeg" alt="Pouvoir 4" class="power-card">
+                    <!-- ajoutez autant d’images que nécessaire -->
+                    </div>
+                </section>
+
+                <!-- ── Sac de jetons ── -->
+                <section id="bag">
+                    <h3>Sac de jetons</h3>
+                    <img src="assets/imgs/card.jpeg" alt="Sac de jetons" class="bag-icon">
+                    <!-- vous pourrez ajouter ici un compteur ou un détail des jetons restants -->
+                </section>
+        </div>
+        <div id="game-area">
+            <div class="cards-container">
+
+                <!-- 1) Small cards row -->
+                <div class="card-row small-cards">
+                  <div class="card card-small"><img src="assets/imgs/card.jpeg" alt="petite carte" class="petite-card"></div>
+                  <div class="card card-small"><img src="assets/imgs/card.jpeg" alt="petite carte" class="petite-card"></div>
+                  <div class="card card-small"><img src="assets/imgs/card.jpeg" alt="petite carte" class="petite-card"></div>
+                  <div class="card card-small"><img src="assets/imgs/card.jpeg" alt="petite carte" class="petite-card"></div>
+                  <div class="card card-small"><img src="assets/imgs/card.jpeg" alt="petite carte" class="petite-card"></div>
+                </div>
+              
+                <!-- 2) Medium cards row -->
+                <div class="card-row medium-cards">
+                  <div class="card card-medium"><img src="assets/imgs/card.jpeg" alt="medium carte" class="medium-card"></div>
+                  <div class="card card-medium"><img src="assets/imgs/card.jpeg" alt="medium carte" class="medium-card"></div>
+                  <div class="card card-medium"><img src="assets/imgs/card.jpeg" alt="medium carte" class="medium-card"></div>
+                  <div class="card card-medium"><img src="assets/imgs/card.jpeg" alt="medium carte" class="medium-card"></div>
+                  <div class="card card-medium"><img src="assets/imgs/card.jpeg" alt="medium carte" class="medium-card"></div>
+                </div>
+              
+                <!-- 3) Large cards row -->
+                <div class="card-row large-cards">
+                  <div class="card card-large"><img src="assets/imgs/card.jpeg" alt="large carte" class="large-card"></div>
+                  <div class="card card-large"><img src="assets/imgs/card.jpeg" alt="large carte" class="large-card"></div>
+                  <div class="card card-large"><img src="assets/imgs/card.jpeg" alt="large carte" class="large-card"></div>
+                </div>
+              
+                <!-- 4) Small index badge -->
+                <div id="index-badge" class="index-badge">Help</div>
+
+                <!-- Help popup (initially hidden) -->
+                <div id="help-popup" class="help-popup">
+                  <div class="popup-header">
+                    <span>Carte d’aide</span>
+                    <button id="help-close" class="close-btn">&times;</button>
+                  </div>
+                  <div class="help-content">
+                    <div class="help-item">
+                      <img src="icons/sword.png" alt="Épée">
+                      <span>x6</span>
+                    </div>
+                    <div class="help-item">
+                      <img src="icons/shield.png" alt="Bouclier">
+                      <span>x5</span>
+                    </div>
+                    <div class="help-item">
+                      <img src="icons/helmet.png" alt="Casque">
+                      <span>x4</span>
+                    </div>
+                    <div class="help-item">
+                      <img src="icons/ship.png" alt="Navire">
+                      <span>x3</span>
+                    </div>
+                    <div class="help-item">
+                      <img src="icons/bag.png" alt="Sac">
+                      <span>x2</span>
+                    </div>
+                    <div class="help-item">
+                      <img src="icons/coin.png" alt="Pièce">
+                      <span>x1</span>
+                    </div>
+                    <div class="help-item">
+                      <img src="icons/scroll.png" alt="Parchemin">
+                      <span>x2</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+          <div id="controls">
+            <button id="fs-btn" title="Fullscreen">⛶</button>
+            <button id="exit-fs-btn" title="Exit fullscreen" style="display: none;">✕</button>
+          </div>
+          
+        </div>
+    </div>
+  <script src="assets/script.js"></script>
+</body>
+</html>

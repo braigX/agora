@@ -1,0 +1,309 @@
+/* ─── Full‐viewport wood background ─── */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../assets/imgs/wood.png') center center / cover no-repeat;
+  }
+  
+  /* ─── Game container fills nearly all the viewport ─── */
+  #game-container {
+    position: absolute;
+    top: 1vh;            /* small margin from top */
+    left: 1vw;           /* small margin from left */
+    width: 98vw;         /* 98% of viewport width */
+    height: 98vh;        /* 98% of viewport height */
+    display: flex;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    overflow: hidden;
+    background: rgba(255,255,255,0.8);
+  }
+
+/* fullscreen / exit buttons */
+#controls {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 10;
+}
+#controls button {
+  background: rgba(0,0,0,0.6);
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  padding: 6px 10px;
+  margin-left: 5px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* your game canvas fills the container */
+#gameCanvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+  /* colonne de gauche : 20% */
+  #sidebar {
+    flex: 0 0 20%;
+    background: #fff;
+    /* vous pouvez ajouter padding, bordures, etc. */
+  }
+  
+  /* colonne de droite : 80% + background image */
+  #game-area {
+    flex: 1; /* équivaut à 80% ici */
+    background: url('/assets/imgs/wood.jpg') center center / cover no-repeat;
+    position: relative;
+  }
+  
+  /* contrôles et canvas restent identiques */
+  #controls {
+    position: absolute;
+    top: 10px; right: 10px;
+    z-index: 10;
+  }
+  #controls button {
+    background: rgba(0,0,0,0.6);
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    padding: 6px 10px;
+    margin-left: 5px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  #gameCanvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+/* Sidebar layout */
+#sidebar {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    background: #fff;
+  }
+  
+  /* Each section takes half the height (adjust as needed) */
+  #scores, #powers {
+    flex: 1;
+    margin-bottom: 10px;
+  }
+  #powers {
+    /* pour plus tard */
+    background: #f9f9f9;
+  }
+  
+  /* Scores table styling */
+  #scores table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    font-size: 14px;
+  }
+  #scores thead th {
+    padding: 6px 4px;
+    border-bottom: 1px solid #ccc;
+  }
+  #scores tbody td {
+    padding: 8px 4px;
+  }
+  
+  /* Avatar column */
+  .avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  /* Header icons */
+  .icon-header {
+    width: 20px;
+    height: 20px;
+  }
+  
+  
+/* titres de section */
+#powers h3,
+#bag h3 {
+  margin: 8px 0;
+  font-size: 16px;
+  text-align: center;
+}
+
+/* grille de cartes de pouvoirs */
+.power-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+  padding: 4px 0;
+}
+.power-card {
+  width: 40px;    /* ajustez selon votre design */
+  height: 60px;
+  object-fit: contain;
+}
+
+/* section Sac de jetons */
+#bag {
+  text-align: center;
+  padding-top: 8px;
+}
+.bag-icon {
+  width: 50px;    /* ajustez si besoin */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* évitez que les titres ne repoussent la section suivante */
+#scores, #powers, #bag {
+  flex: 1;
+  margin-bottom: 6px;
+}
+
+/* Container holds all rows */
+.cards-container {
+  position: absolute;
+  top: 20px;    /* adjust padding from top */
+  left: 20px;   /* adjust padding from left */
+  right: 20px;  /* padding from right */
+  bottom: 20px; /* padding from bottom */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  pointer-events: none; /* let clicks fall through if needed */
+}
+
+/* each row spreads its cards evenly */
+.card-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  pointer-events: auto;
+}
+
+/* shared card styles */
+.card {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  text-align: center;
+  padding: 8px;
+}
+
+/* small cards: ~12% width, tall-ish */
+.card-small {
+  width: 8%;
+  aspect-ratio: 3/3;
+  padding: 0;
+}
+.card-small img {
+  width: 100%;
+  height: auto;
+}
+
+/* medium cards: ~18% width */
+.card-medium {
+  width: 14%;
+  aspect-ratio: 3/3;
+  margin-top: 40px;
+  padding: 0;
+}
+
+.card-medium img {
+  width: 100%;
+  height: auto;
+}
+
+/* large cards: ~28% width, more rectangular */
+.card-large {
+  width: 28%;
+  aspect-ratio: 4/4;
+  margin-top: 40px;
+  padding: 0;
+}
+.card-large img {
+  width: 100%;
+  height: auto;
+}
+
+/* index badge in corner */
+.index-badge {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(0,0,0,0.7);
+  color: #fff;
+  font-size: 0.75rem;
+  padding: 4px 8px;
+  border-radius: 4px;
+  pointer-events: auto;
+}
+/* Popup container */
+.help-popup {
+  position: absolute;
+  top: 50px;       /* adjust to sit below the badge */
+  right: 10px;
+  width: 180px;
+  background: rgba(255,255,240,0.98);
+  border: 1px solid #aaa;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  display: none;   /* hidden by default */
+  z-index: 100;
+}
+
+/* Visible state */
+.help-popup.visible {
+  display: block;
+}
+
+/* Header with close button */
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 10px;
+  border-bottom: 1px solid #ccc;
+}
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+/* Grid of items */
+.help-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  padding: 8px 10px;
+}
+.help-item {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+}
+.help-item img {
+  width: 24px;
+  height: 24px;
+  margin-right: 4px;
+}
