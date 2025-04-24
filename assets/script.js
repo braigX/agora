@@ -57,3 +57,34 @@ document.addEventListener('click', e => {
     popup.classList.remove('visible');
   }
 });
+
+////// then add the lightbox functionality
+
+// ─── Lightbox setup ───
+const lightboxOverlay = document.getElementById('lightbox-overlay');
+const lightboxImg     = document.getElementById('lightbox-img');
+const lightboxClose   = document.getElementById('lightbox-close');
+
+// 1) When ANY image is clicked, open the lightbox
+document.querySelectorAll('img').forEach(img => {
+  img.style.cursor = 'pointer';
+  img.addEventListener('click', e => {
+    lightboxImg.src = img.src;
+    lightboxOverlay.classList.add('visible');
+    e.stopPropagation();
+  });
+});
+
+// 2) Close button
+lightboxClose.addEventListener('click', () => {
+  lightboxOverlay.classList.remove('visible');
+});
+
+// 3) Clicking outside the image closes it
+lightboxOverlay.addEventListener('click', () => {
+  lightboxOverlay.classList.remove('visible');
+});
+
+// Optional: prevent clicking the image itself from closing
+document.querySelector('.lightbox-content img')
+  .addEventListener('click', e => e.stopPropagation());

@@ -15,11 +15,11 @@ html, body {
     width: 98vw;         /* 98% of viewport width */
     height: 98vh;        /* 98% of viewport height */
     display: flex;
-    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    /* box-shadow: 0 0 20px rgba(0,0,0,0.4); */
     overflow: hidden;
-    background: rgba(255,255,255,0.8);
+    /* background: rgba(255,255,255,0.8); */
   }
-
+  
 /* your game canvas fills the container */
 #gameCanvas {
   width: 100%;
@@ -32,7 +32,14 @@ html, body {
     background: #fff;
     /* vous pouvez ajouter padding, bordures, etc. */
   }
-  
+  /* // centered logo  */
+  .logo {
+    width: 40%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    padding: 10px 0;
+  }
   /* colonne de droite : 80% + background image */
   #game-area {
     flex: 1; /* équivaut à 80% ici */
@@ -147,7 +154,7 @@ html, body {
   bottom: 20px; /* padding from bottom */
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   pointer-events: none; /* let clicks fall through if needed */
 }
 
@@ -157,7 +164,20 @@ html, body {
   justify-content: center;
   gap: 10px;
   pointer-events: auto;
+  background: none;
+  border: 2px solid #000000;
+  padding: 20px;
+  border-radius: 16px;
 }
+/* .card-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  pointer-events: auto;
+  background: beige;
+  padding: 10px;
+  border-radius: 16px;
+} */
 
 /* shared card styles */
 .card {
@@ -188,7 +208,6 @@ html, body {
 .card-medium {
   width: 14%;
   aspect-ratio: 3/3;
-  margin-top: 40px;
   padding: 0;
 }
 
@@ -201,7 +220,6 @@ html, body {
 .card-large {
   width: 28%;
   aspect-ratio: 4/4;
-  margin-top: 40px;
   padding: 0;
 }
 .card-large img {
@@ -309,3 +327,56 @@ html, body {
   height: 24px;
   margin-right: 4px;
 }
+
+/* full‐screen, centered overlay */
+.lightbox-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 200;             /* above other UI */
+}
+
+/* visible state */
+.lightbox-overlay.visible {
+  display: flex;
+}
+
+/* container for image + close button */
+.lightbox-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+}
+
+/* the enlarged image */
+.lightbox-content img {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  border-radius: 4px;
+}
+#sidebar section {
+  background-color: #f9f0ff;
+  border-radius: 5px;
+}
+/* close “×” */
+.lightbox-close {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+  width: 32px;
+  height: 32px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
