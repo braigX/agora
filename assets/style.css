@@ -20,24 +20,6 @@ html, body {
     background: rgba(255,255,255,0.8);
   }
 
-/* fullscreen / exit buttons */
-#controls {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  z-index: 10;
-}
-#controls button {
-  background: rgba(0,0,0,0.6);
-  border: none;
-  color: #fff;
-  font-size: 18px;
-  padding: 6px 10px;
-  margin-left: 5px;
-  cursor: pointer;
-  border-radius: 4px;
-}
-
 /* your game canvas fills the container */
 #gameCanvas {
   width: 100%;
@@ -59,22 +41,6 @@ html, body {
   }
   
   /* contrôles et canvas restent identiques */
-  #controls {
-    position: absolute;
-    top: 10px; right: 10px;
-    z-index: 10;
-  }
-  #controls button {
-    background: rgba(0,0,0,0.6);
-    border: none;
-    color: #fff;
-    font-size: 18px;
-    padding: 6px 10px;
-    margin-left: 5px;
-    cursor: pointer;
-    border-radius: 4px;
-  }
-  
   #gameCanvas {
     width: 100%;
     height: 100%;
@@ -272,6 +238,42 @@ html, body {
 /* Visible state */
 .help-popup.visible {
   display: block;
+}
+#controls {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 10;
+}
+
+/* all three look alike, but smaller for “?” */
+#controls button {
+  background: rgba(0,0,0,0.6);
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  padding: 6px 8px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* make the help button slightly more compact */
+#help-btn {
+  font-size: 16px;
+  line-height: 1;
+  padding: 4px 6px;
+}
+
+/* position the popup under the help button */
+.help-popup {
+  position: absolute;
+  top: 60px;    /* ~ 3 button heights down */
+  right: 10px;  /* same right as controls */
+  width: 180px;
+  /* … rest of your popup styles … */
 }
 
 /* Header with close button */
